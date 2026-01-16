@@ -1,0 +1,185 @@
+/* =========================================
+   1. ESTÉTICA GLOBAL "HYPER-DARK"
+   ========================================= */
+.stApp {
+    background: radial-gradient(circle at 50% 0%, #1a1f2c 0%, #0e1117 100%) !important;
+    color: #e0e0e2;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Ocultar elementos innecesarios */
+#MainMenu, footer { visibility: hidden; }
+
+/* Header transparente para el botón del sidebar */
+header[data-testid="stHeader"] {
+    background-color: transparent !important;
+    visibility: visible !important;
+}
+
+/* =========================================
+   2. BARRA LATERAL (SIDEBAR) PREMIUM
+   ========================================= */
+section[data-testid="stSidebar"] {
+    background-color: rgba(22, 26, 35, 0.95) !important;
+    backdrop-filter: blur(15px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Ajuste de widgets en Sidebar */
+section[data-testid="stSidebar"] .stSelectbox, 
+section[data-testid="stSidebar"] .stMultiSelect {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border-radius: 10px !important;
+}
+
+/* =========================================
+   3. ALINEACIÓN DEL HEADER PRINCIPAL (FIX)
+   ========================================= */
+.main-header-wrapper {
+    margin-top: -75px; /* Sincroniza con el logo del sidebar */
+    margin-bottom: 40px; /* Evita que se encime con el cargador de archivos */
+    position: relative;
+    z-index: 10;
+}
+
+.main-title {
+    font-size: 3.5rem !important;
+    font-weight: 900 !important;
+    background: linear-gradient(to right, #ffffff 30%, #00CC96 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 !important;
+    letter-spacing: -2px !important;
+    line-height: 1 !important;
+}
+
+.main-subtitle-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.subtitle-accent {
+    height: 2px;
+    width: 35px;
+    background: #00CC96;
+    box-shadow: 0 0 10px rgba(0, 204, 150, 0.5);
+}
+
+.main-subtitle {
+    color: #8a8d97 !important;
+    font-size: 0.85rem !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 3px !important;
+    font-weight: 600 !important;
+}
+
+/* =========================================
+   4. SECCIONES Y CONTENEDORES (GRÁFICOS)
+   ========================================= */
+.section {
+    background: #161a23;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.6s ease-out;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.section-subtitle {
+    font-size: 14px;
+    color: #8a8d97;
+    margin-bottom: 16px;
+}
+
+/* =========================================
+   5. KPI CARDS (BORDES LATERALES COMO IMAGEN)
+   ========================================= */
+.kpi-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Variantes de Color (Borde Izquierdo Grueso) */
+.kpi-green  { border-left: 5px solid #00CC96 !important; }
+.kpi-red    { border-left: 5px solid #FF4B4B !important; }
+.kpi-yellow { border-left: 5px solid #F7C948 !important; }
+
+.kpi-value {
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+.kpi-label {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #9DA1B2;
+    font-weight: 600;
+}
+
+/* =========================================
+   6. CORRECCIÓN DE ELEMENTOS ENCIMADOS
+   ========================================= */
+
+/* Espaciado para métricas nativas 1T vs 2T */
+[data-testid="stMetric"] {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px !important;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 15px;
+}
+
+/* Títulos de Streamlit que se enciman */
+.stMarkdown h2, .stMarkdown h3 {
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Espaciador para el cargador de archivos */
+.stFileUploader {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: #2a2e3d; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #00CC96; }
+
+/* OCULTAR MODEBAR DE PLOTLY */
+.js-plotly-plot .modebar {
+    display: none !important;
+}
